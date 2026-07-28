@@ -1,0 +1,1240 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Messhelfer – Isokinetik</title>
+<meta name="description" content="Rechenhilfe zu DIN EN 15259: Messpunkte, Volumenstrom und isokinetische Staubprobenahme.">
+<meta name="theme-color" content="#0e1416">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Messhelfer">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEaklEQVR4nO3dS2obSwCF4ZK5e3CGBm8uOwgYMrpgyA6yOYOH9ip8BxcZxdGjH9Vd3XW+bxosaXD+rpZknENp4P7h8aPF87Jt768vh7Wfc5UnNHimWCOIxZ7A6KlpqRiqPqjRU0opT8+/Lv7b89OP2Y9fM4ZqD2T8XBv+V3NDqBXB7AcxfEoZN/6jLZwGs37Y+Jky/K9angb/TPkhw2dLjnucEsLd1CeDGlf/mo8zZZujAjB+jmqNtvbjjd3o4ACMn70Ys9VBARg/p2pf/Zd43KGbvRmA8bNXQ7Z7NQDjZ+9ubXj0p0DQk4sBuPrTi2tbPhuA8dObS5ue9E0wOZb6xGcr/vrq2NWfUtoMv8Yvx93y9dcl/jgBjJ/er/j3D48fpxH4FIhPLce/xtX/HAHQXKvxl3ISgNufbL3f+pw63bpPgWim5ZX/yC0Q3X7iM8RdKW5/qOfWsJ+ffmxi/MfNuwWiui0MfCi3QEQTANEO7v8pZRt/3qQFJwDRvAkOVfujzz1e/UsRQJykb3yHcAsUZKnx7/XqX4oTIMYS49/z8I+cAFx0aeBb+Ta3Bh+DBphz9e9l6Jc4AYgmAKIJgGgCIJoAAkx9I9v7G+BSBEA4AYQYezVPuPqXIoAoQ0edMv5SfBEW69yXY0nDPxIA0dwCEc1vg3bm2+9/F3+Ot+8/F3+OtTgBiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGjdB7DG/5m1pedlnK4DMH5u6TYA42eILgMwfobqLgDjZ4yuAjB+xuomAONnii4CMH6m2n0Axs8cuw7A+JlrtwEYPzXsMgDjp5bdBWD81LSrAIyf2nYTgPGzhF0EYPwsZfMBGD9L2nQAxs/SNhuA8bOGTQZg/KzlcP/w+NH6RZwywv69ff/Z+iV82uQJAGsRANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEO1w//D40fpFQCtOAKIJgGgCIJoAiCYAot29v74cWr8IaOH99eXgBCCaAIgmAKLdlfL/vVDrFwJrOm7eCUA0ARDtMwC3QaQ43boTgGgCINofAbgNondfN/7XCSACenVu226BiHY2AKcAvbm06YsngAjoxbUtuwUi2tUAnALs3a0N3zwBRMBeDdnuoFsgEbA3Qzc7+D2ACNiLMVsd9SZYBGzd2I2O/hRIBGzVlG3OGrO/K8oWzLkoz/oewGlAa3M3WG3ATgPWVOviW+2bYKcBa6m5tcVG60SgpqUusKtctcXAFGvcVTS5bREE57S4jf4P1aQ1KDxWyMMAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEaklEQVR4nO3dS2obSwCF4ZK5e3CGBm8uOwgYMrpgyA6yOYOH9ip8BxcZxdGjH9Vd3XW+bxosaXD+rpZknENp4P7h8aPF87Jt768vh7Wfc5UnNHimWCOIxZ7A6KlpqRiqPqjRU0opT8+/Lv7b89OP2Y9fM4ZqD2T8XBv+V3NDqBXB7AcxfEoZN/6jLZwGs37Y+Jky/K9angb/TPkhw2dLjnucEsLd1CeDGlf/mo8zZZujAjB+jmqNtvbjjd3o4ACMn70Ys9VBARg/p2pf/Zd43KGbvRmA8bNXQ7Z7NQDjZ+9ubXj0p0DQk4sBuPrTi2tbPhuA8dObS5ue9E0wOZb6xGcr/vrq2NWfUtoMv8Yvx93y9dcl/jgBjJ/er/j3D48fpxH4FIhPLce/xtX/HAHQXKvxl3ISgNufbL3f+pw63bpPgWim5ZX/yC0Q3X7iM8RdKW5/qOfWsJ+ffmxi/MfNuwWiui0MfCi3QEQTANEO7v8pZRt/3qQFJwDRvAkOVfujzz1e/UsRQJykb3yHcAsUZKnx7/XqX4oTIMYS49/z8I+cAFx0aeBb+Ta3Bh+DBphz9e9l6Jc4AYgmAKIJgGgCIJoAAkx9I9v7G+BSBEA4AYQYezVPuPqXIoAoQ0edMv5SfBEW69yXY0nDPxIA0dwCEc1vg3bm2+9/F3+Ot+8/F3+OtTgBiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGjdB7DG/5m1pedlnK4DMH5u6TYA42eILgMwfobqLgDjZ4yuAjB+xuomAONnii4CMH6m2n0Axs8cuw7A+JlrtwEYPzXsMgDjp5bdBWD81LSrAIyf2nYTgPGzhF0EYPwsZfMBGD9L2nQAxs/SNhuA8bOGTQZg/KzlcP/w+NH6RZwywv69ff/Z+iV82uQJAGsRANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEO1w//D40fpFQCtOAKIJgGgCIJoAiCYAot29v74cWr8IaOH99eXgBCCaAIgmAKLdlfL/vVDrFwJrOm7eCUA0ARDtMwC3QaQ43boTgGgCINofAbgNondfN/7XCSACenVu226BiHY2AKcAvbm06YsngAjoxbUtuwUi2tUAnALs3a0N3zwBRMBeDdnuoFsgEbA3Qzc7+D2ACNiLMVsd9SZYBGzd2I2O/hRIBGzVlG3OGrO/K8oWzLkoz/oewGlAa3M3WG3ATgPWVOviW+2bYKcBa6m5tcVG60SgpqUusKtctcXAFGvcVTS5bREE57S4jf4P1aQ1KDxWyMMAAAAASUVORK5CYII=">
+</head>
+<body>
+<title>Messhelfer EN 15259</title>
+<style>
+  :root {
+    --bg: #0e1416; --panel: #172023; --panel2: #1e2a2e; --line: #2c3b40;
+    --ink: #e4edef; --mut: #91a6ac; --akz: #2fb8a6; --akz-ink: #08211d;
+    --gruen: #3fb950; --gelb: #d29922; --rot: #f85149;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif; }
+  .hülle { max-width: 520px; margin: 0 auto; padding: 16px 14px 48px; }
+  header { margin: 6px 2px 14px; }
+  header h1 { font-size: 1.12rem; margin: 0; }
+  header .unter { color: var(--mut); font-size: .76rem; margin-top: 2px; line-height: 1.4; }
+  header .quelle { font-size: .7rem; opacity: .8; word-break: break-word; }
+  .karte { background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px; margin-bottom: 14px; }
+  h2 { font-size: .78rem; text-transform: uppercase; letter-spacing: .09em; color: var(--akz); margin: 0 0 10px; }
+  h3 { font-size: .82rem; margin: 14px 0 6px; color: var(--ink); }
+  label { display: block; font-size: .7rem; color: var(--mut); margin: 8px 0 3px; }
+  input, select { width: 100%; padding: 9px 8px; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--panel2); color: var(--ink); font-size: .92rem; font-family: inherit;
+    font-variant-numeric: tabular-nums; }
+  input:focus, select:focus { outline: 2px solid var(--akz); outline-offset: 1px; border-color: var(--akz); }
+  .zeile2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .zeile3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+  .schalter { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 4px; }
+  .schalter button { flex: 1; padding: 10px; border: 0; background: none; color: var(--mut);
+    font-size: .9rem; font-family: inherit; cursor: pointer; }
+  .schalter button.an { background: var(--akz); color: var(--akz-ink); font-weight: 600; }
+
+  .erg { margin-top: 12px; padding: 10px 11px; border-radius: 10px; background: var(--panel2);
+    border: 1px dashed var(--line); font-size: .82rem; color: var(--mut); line-height: 1.55; }
+  .erg b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .erg .gross { font-size: 1.05rem; }
+  .hinweis { font-size: .74rem; color: var(--mut); margin-top: 8px; line-height: 1.45; }
+  .warn { color: var(--gelb); }
+
+  table.pt { width: 100%; border-collapse: collapse; font-size: .8rem; margin-top: 10px;
+    font-variant-numeric: tabular-nums; }
+  table.pt th { text-align: right; color: var(--mut); font-weight: 500; font-size: .72rem;
+    padding: 4px 6px; border-bottom: 1px solid var(--line); }
+  table.pt td { text-align: right; padding: 5px 6px; border-bottom: 1px solid var(--line); }
+  table.pt th:first-child, table.pt td:first-child { text-align: left; }
+  table.pt tr:last-child td { border-bottom: 0; }
+  .ok { color: var(--gruen); font-weight: 600; }
+  .nok { color: var(--rot); font-weight: 600; }
+
+  .uhr { margin-top: 12px; padding: 14px 12px; border-radius: 10px; background: var(--panel2);
+    border: 1px solid var(--line); text-align: center; }
+  .uhr-zeit { font-size: 2.3rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .uhr button { width: 100%; margin-top: 12px; padding: 22px; border: 0; border-radius: 12px;
+    background: var(--akz); color: var(--akz-ink); font-size: 1.5rem; font-weight: 700;
+    font-family: inherit; cursor: pointer; letter-spacing: .02em; }
+  .uhr button.laeuft { background: var(--gelb); color: #1a1300; }
+  .uhr-band { margin-top: 12px; padding: 12px 10px; border-radius: 10px; color: #0b1112;
+    font-size: 1.25rem; font-weight: 700; letter-spacing: .03em; line-height: 1.25; }
+  .band-klein { display: block; font-size: .78rem; font-weight: 600; opacity: .85;
+    letter-spacing: 0; margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .uhr .erg { text-align: left; }
+
+  svg.skizze { width: 100%; max-width: 230px; display: block; margin: 12px auto 0; }
+
+  .dp-tab { margin-top: 10px; overflow-x: auto; }
+  .dp-gitter { display: grid; gap: 8px; }
+  .dp-kopf { font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--akz); padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+  .dp-feld label { margin: 0 0 3px; font-size: .68rem; line-height: 1.25; }
+  .dp-tiefe { display: block; color: var(--mut); font-variant-numeric: tabular-nums; }
+  .dp-feld input { padding: 7px 5px; font-size: .85rem; }
+  .dp-v { font-size: .68rem; color: var(--akz); margin-top: 2px; min-height: .9em; font-variant-numeric: tabular-nums; }
+
+  .ampel-band { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-size: .88rem;
+    font-weight: 600; text-align: center; background: var(--panel2); }
+  .klein { border: 1px solid var(--line); background: none; color: var(--mut); border-radius: 8px;
+    padding: 8px 10px; cursor: pointer; font-size: .8rem; font-family: inherit; }
+  .klein.frage { color: var(--rot); border-color: var(--rot); font-weight: 600; }
+  .mp-sollz { padding: 9px 8px; border: 1px dashed var(--line); border-radius: 10px;
+    font-size: 1.05rem; font-variant-numeric: tabular-nums; background: var(--panel2); }
+
+  .fuss { display: flex; gap: 10px; margin-top: 12px; }
+  .fuss .klein { flex: 1; text-align: center; }
+</style>
+
+<div class="hülle">
+  <header>
+    <h1>🏭 Messhelfer – Isokinetik</h1>
+    <div class="unter">Rechenhilfe zu DIN EN 15259 – maßgeblich ist der Normtext.<br>
+      Erstellt von M. Dembek · validiert gegen DEKRA<br>
+      <span class="quelle">Isokinetik-Eindringtiefen_ohne Makro_2025_01_27.xlsx</span></div>
+  </header>
+
+  <section class="karte">
+    <h2>1 · Messquerschnitt</h2>
+    <div class="schalter" id="formWahl">
+      <button data-form="rund" class="an">⬤ Rund</button>
+      <button data-form="rechteck">▭ Rechteckig</button>
+    </div>
+    <div id="rundFelder">
+      <div class="zeile2">
+        <div><label for="dm">Innendurchmesser d (m)</label><input id="dm" inputmode="decimal" placeholder="1,20"></div>
+        <div><label for="stutzen">Stutzenlänge (mm)</label><input id="stutzen" inputmode="decimal" placeholder="100"></div>
+      </div>
+    </div>
+    <div id="rechteckFelder" style="display:none">
+      <div class="zeile3">
+        <div><label for="l1">Seite L1 (m)</label><input id="l1" inputmode="decimal" placeholder="1,60"></div>
+        <div><label for="l2">Seite L2 (m)</label><input id="l2" inputmode="decimal" placeholder="0,80"></div>
+        <div><label for="stutzenR">Stutzen (mm)</label><input id="stutzenR" inputmode="decimal" placeholder="100"></div>
+      </div>
+    </div>
+    <div class="zeile2">
+      <div><label for="einlaufIst">Einlaufstrecke (m)</label><input id="einlaufIst" inputmode="decimal" placeholder="optional"></div>
+      <div><label for="auslaufIst">Auslaufstrecke (m)</label><input id="auslaufIst" inputmode="decimal" placeholder="optional"></div>
+    </div>
+    <div class="zeile2">
+      <div><label for="punkteWahl">Anzahl Messpunkte</label><input id="punkteWahl" inputmode="numeric" placeholder="manuelle Eingabe"></div>
+      <div></div>
+    </div>
+    <div class="erg" id="qsErg">Abmessungen eingeben.</div>
+    <div id="ptTabelle"></div>
+    <div id="skizze"></div>
+  </section>
+
+  <section class="karte">
+    <h2>1b · Probenahmezeit</h2>
+    <div class="zeile2">
+      <div><label for="dauerGesamt">Geplante Gesamtdauer (min)</label><input id="dauerGesamt" inputmode="decimal" placeholder="nach Messpunkten"></div>
+      <div></div>
+    </div>
+    <div class="erg" id="zeitErg">Erst Querschnitt (1) ausfüllen.</div>
+  </section>
+
+  <section class="karte">
+    <h2>2 · Abgaszustand</h2>
+    <div class="zeile3">
+      <div><label for="tGas">Temperatur (°C)</label><input id="tGas" inputmode="decimal" value="185"></div>
+      <div><label for="pBaro">Barometer (hPa)</label><input id="pBaro" inputmode="decimal" value="1013,25"></div>
+      <div><label for="pStat">p statisch (Pa)</label>
+        <div style="display:flex;gap:6px">
+          <input id="pStat" inputmode="decimal" value="100" style="flex:1;min-width:0">
+          <button type="button" class="klein" id="pStatVz" style="flex:none;padding:0 12px;font-size:1.15rem" aria-label="Vorzeichen umschalten">±</button>
+        </div>
+      </div>
+    </div>
+    <div class="zeile3">
+      <div><label for="h2o">H₂O (Vol-% f.)</label><input id="h2o" inputmode="decimal" value="12"></div>
+      <div><label for="o2">O₂ (Vol-% tr.)</label><input id="o2" inputmode="decimal" value="8"></div>
+      <div><label for="co2">CO₂ (Vol-% tr.)</label><input id="co2" inputmode="decimal" value="10"></div>
+    </div>
+    <button type="button" class="klein" id="feuchteAuf" style="margin-top:8px">H₂O aus Messung berechnen …</button>
+    <div id="feuchteBox" style="display:none;margin-top:8px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--panel2)">
+      <label for="feuchteArt">Verfahren</label>
+      <select id="feuchteArt">
+        <option value="grav">Gravimetrisch (Wägung)</option>
+        <option value="psy">Psychrometrisch</option>
+        <option value="rel">Relative Feuchte</option>
+        <option value="abs">Direkteingabe</option>
+      </select>
+      <div class="fArt" data-art="grav">
+        <div class="zeile2">
+          <div><label for="fMasse">Masse (g)</label><input id="fMasse" inputmode="decimal"></div>
+          <div><label for="fVol">Gasvolumen (l)</label><input id="fVol" inputmode="decimal"></div>
+        </div>
+        <div class="zeile2">
+          <div><label for="fTemp">Temp. Gasuhr (°C)</label><input id="fTemp" inputmode="decimal" value="20"></div>
+          <div><label for="fKorr">Korrekturfaktor</label><input id="fKorr" inputmode="decimal" value="1,013"></div>
+        </div>
+      </div>
+      <div class="fArt" data-art="psy" style="display:none">
+        <div class="zeile2">
+          <div><label for="fTt">Temp. trocken (°C)</label><input id="fTt" inputmode="decimal"></div>
+          <div><label for="fTf">Temp. feucht (°C)</label><input id="fTf" inputmode="decimal"></div>
+        </div>
+      </div>
+      <div class="fArt" data-art="rel" style="display:none">
+        <div class="zeile2">
+          <div><label for="fRel">rel. Feuchte (%)</label><input id="fRel" inputmode="decimal"></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="fArt" data-art="abs" style="display:none">
+        <div class="zeile2">
+          <div><label for="fAbs">Feuchte (g/Nm³ tr.)</label><input id="fAbs" inputmode="decimal"></div>
+          <div><label for="fVolTr">oder H₂O (Vol-% tr.)</label><input id="fVolTr" inputmode="decimal"></div>
+        </div>
+      </div>
+      <div class="erg" id="feuchteErg">Werte eintragen.</div>
+      <div class="fuss">
+        <button type="button" class="klein" id="feuchteNehmen">Übernehmen</button>
+        <button type="button" class="klein" id="feuchteZu">Schließen</button>
+      </div>
+    </div>
+    <div class="zeile2">
+      <div><label for="pitot">Pitotfaktor S</label><input id="pitot" inputmode="decimal" value="1,00"></div>
+      <div></div>
+    </div>
+    <div class="erg" id="gasErg">Temperatur eingeben (H₂O/O₂/CO₂ optional).</div>
+  </section>
+
+  <section class="karte">
+    <h2>3 · Netzmessung Δp → Volumenstrom</h2>
+    <div class="zeile2">
+      <div><label for="vBekannt">V̇ Abgas bekannt (optional)</label><input id="vBekannt" inputmode="decimal" placeholder="z. B. 20.000"></div>
+      <div><label for="vEinheit">Einheit</label><select id="vEinheit">
+        <option value="ntr" selected>Nm³/h trocken</option>
+        <option value="nf">Nm³/h feucht</option>
+        <option value="btr">m³/h Betrieb</option>
+      </select></div>
+    </div>
+    <div class="hinweis">Δp in Pa je Messpunkt · ≈ = Vorschlag aus bekanntem V̇.</div>
+    <div id="dpBereich"></div>
+    <div class="erg" id="vErg">Erst Querschnitt (1) und Abgaszustand (2) ausfüllen.</div>
+  </section>
+
+  <section class="karte">
+    <h2>4 · Isokinetik (Staub)</h2>
+    <div class="zeile3">
+      <div><label for="duese">Düse Ø (mm)</label><input id="duese" inputmode="decimal" placeholder="automatisch"></div>
+      <div><label for="geraetMin">Gasuhr min (m³/h)</label><input id="geraetMin" inputmode="decimal" value="1,0"></div>
+      <div><label for="geraetMax">Filter max (Nm³/h tr.)</label><input id="geraetMax" inputmode="decimal" value="3,0"></div>
+    </div>
+    <div class="zeile3">
+      <div><label for="desaga">Desaga (l/min)</label><input id="desaga" inputmode="decimal" placeholder="0"></div>
+      <div><label for="zielIso">Ziel-Isokinetik (%)</label><input id="zielIso" inputmode="decimal" value="+5"></div>
+      <div><label for="guFaktor">Gasuhr-Faktor</label><input id="guFaktor" inputmode="decimal" value="1,013"></div>
+    </div>
+    <div class="zeile3">
+      <div><label for="tGu">Gasuhr-Temp. (°C)</label><input id="tGu" inputmode="decimal" value="20"></div>
+      <div><label for="pGu">p Gasuhr (hPa abs.)</label><input id="pGu" inputmode="decimal" placeholder="= Barometer"></div>
+      <div><label for="stoppVol">Stoppuhr-Volumen (l)</label><input id="stoppVol" inputmode="decimal" value="10"></div>
+    </div>
+    <div class="zeile2">
+      <div><label for="zaehlerStart">Zählerstand Start (m³)</label><input id="zaehlerStart" inputmode="decimal" placeholder="123,456"></div>
+      <div></div>
+    </div>
+    <div class="erg" id="isoErg">Erst Netzmessung (3) ausfüllen.</div>
+    <div id="duesenTabelle"></div>
+    <div id="planTabelle"></div>
+  </section>
+
+  <section class="karte">
+    <h2>5 · Absaugrate einstellen</h2>
+    <div class="ampel-band" id="mpProfil" style="display:none"></div>
+    <div class="uhr">
+      <div class="uhr-zeit" id="uhrZeit">0,0 s</div>
+      <button id="uhrKnopf">Start</button>
+      <div class="uhr-band" id="uhrBand" style="display:none"></div>
+      <div class="erg" id="uhrErg">Start beim Nulldurchgang, Stopp nach dem Sollvolumen.</div>
+    </div>
+
+    <div class="zeile2">
+      <div><label for="mpIst">Zählerstand Ende (m³)</label><input id="mpIst" inputmode="decimal"></div>
+      <div><label>Zählerstand Soll (Ende)</label><div class="mp-sollz" id="mpSollZ">–</div></div>
+    </div>
+    <div class="ampel-band" id="mpAmpel" style="display:none"></div>
+  </section>
+
+  <section class="karte">
+    <h2>6 · BHKW-Verbrennungsrechnung</h2>
+    <div class="zeile2">
+      <div><label for="gasVerbrauch">Gasverbrauch (Nm³/h)</label><input id="gasVerbrauch" inputmode="decimal" placeholder="250"></div>
+      <div><label for="ch4">CH₄ (Vol-%, Rest CO₂)</label><input id="ch4" inputmode="decimal" placeholder="60"></div>
+    </div>
+    <div class="zeile2">
+      <div><label for="etaEl">η elektrisch (%)</label><input id="etaEl" inputmode="decimal" placeholder="40"></div>
+      <div><label for="etaTh">η thermisch (%)</label><input id="etaTh" inputmode="decimal" placeholder="45"></div>
+    </div>
+    <div class="erg" id="bhkwErg">Gasverbrauch und CH₄-Gehalt eingeben.</div>
+    <div class="hinweis">Hu(CH₄) = 9,97 kWh/Nm³ · λ aus O₂ (Abschnitt 2) · Rest des Gases als CO₂ angenommen.</div>
+  </section>
+
+  <section class="karte">
+    <div class="fuss">
+      <button class="klein" id="reset">Eingaben leeren</button>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var KEY = "messhelfer-eingaben";
+  var form = "rund";
+  var punkte = [];          // [{achse, i, x}] x = Eintauchtiefe ab Innenwand in m
+  var dichteB = null, vMittel = null, flaeche = null, messNormTr = null;
+  var qGuSollAkt = null;   // Soll-Absaugrate des aktuellen Punktes (exakt isokinetisch)
+  var plan = [];           // Absaugplan je Messpunkt
+  var profil = null;       // {ein:true,q,sek} = eine Rate genügt · {ein:false} = punktweise regeln
+  var istWerte = {};       // abgelesener Endstand der Gasuhr
+
+  function zahl(id) {
+    var v = ($(id).value || "").trim();
+    if (v === "") return null;
+    if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(v)) v = v.replace(/\./g, "");  // Tausenderpunkte
+    var n = parseFloat(v.replace(",", "."));
+    return isFinite(n) ? n : null;
+  }
+  function fmt(n, k) { return n.toLocaleString("de-DE", { minimumFractionDigits: k, maximumFractionDigits: k }); }
+
+  // ---------- Speicherung ----------
+  var alleIds = ["dm","stutzen","l1","l2","stutzenR","einlaufIst","auslaufIst","punkteWahl","dauerGesamt","tGas","pBaro","pStat","h2o","o2","co2","pitot",
+                 "vBekannt","vEinheit","duese","geraetMin","geraetMax","tGu","pGu","stoppVol","zielIso","guFaktor","zaehlerStart","desaga","feuchteArt","fMasse","fVol","fTemp","fKorr","fTt","fTf","fRel","fAbs","fVolTr",
+                 "gasVerbrauch","ch4","etaEl","etaTh"];
+  var dpWerte = {};
+  function sichere() {
+    try {
+      var d = { form: form, dp: dpWerte, ist: istWerte };
+      alleIds.forEach(function (id) { d[id] = $(id).value; });
+      localStorage.setItem(KEY, JSON.stringify(d));
+    } catch (e) {}
+  }
+  function lade() {
+    try {
+      var d = JSON.parse(localStorage.getItem(KEY) || "{}");
+      alleIds.forEach(function (id) { if (d[id] !== undefined) $(id).value = d[id]; });
+      dpWerte = d.dp || {};
+      istWerte = d.ist || {};
+      if ($("geraetMax").value === "4,0") $("geraetMax").value = "3,0"; // alter Standardwert → Filtergrenze
+      // leere Abgasdaten mit Durchschnittswerten vorbelegen
+      [["tGas","185"],["pBaro","1013,25"],["pStat","100"],["h2o","12"],["o2","8"],["co2","10"],
+       ["etaEl","40"],["etaTh","45"]].forEach(function (p) {
+        if (($(p[0]).value || "").trim() === "") $(p[0]).value = p[1];
+      });
+      if ($("pStat").value === "-2") $("pStat").value = "100"; // alter hPa-Standard → Pa
+      if (d.form) setForm(d.form);
+    } catch (e) {}
+  }
+
+  // ---------- 1: Messpunkte EN 15259 ----------
+  // Tangentialverfahren: x_i ab Wand, nd Punkte je Achse (ohne Mitte)
+  function tangens(nd, d) {
+    var xs = [];
+    for (var i = 1; i <= nd; i++) {
+      var q = (2 * i - 1) / nd;
+      var x = i <= nd / 2
+        ? d / 2 * (1 - Math.sqrt(1 - q))
+        : d / 2 * (1 + Math.sqrt(q - 1));
+      xs.push(x);
+    }
+    return xs;
+  }
+
+  function mindestRund(A) {
+    if (A < 0.1) return { achsen: 1, gesamt: 1, text: "A < 0,1 m² → 1 Punkt (Kanalmitte)ᵃ" };
+    if (A <= 1.0) return { achsen: 2, gesamt: 4, text: "0,1–1,0 m² → 2 Achsen, 4 Punkte" };
+    if (A <= 2.0) return { achsen: 2, gesamt: 8, text: "1,1–2,0 m² → 2 Achsen, 8 Punkte" };
+    var roh = Math.max(12, Math.ceil(4 * A));
+    var n = Math.ceil(roh / 4) * 4;
+    var t = "> 2,0 m² → mind. 12 u. 4 je m² = " + roh + " Punkte";
+    if (n > 20) { t += " · 20 ausreichend"; n = 20; }
+    else if (n !== roh) t += " (auf " + n + " gerundet)";
+    return { achsen: 2, gesamt: n, text: t };
+  }
+
+  // frei = true: die Wunschzahl des Anwenders gilt, auch unterhalb des Norm-Minimums
+  function mindestRechteck(A, L1, L2, mindestP, frei) {
+    var nMin, teilMin, text;
+    if (frei) {
+      nMin = mindestP; teilMin = 1;
+      text = A <= 1.0 ? "0,1–1,0 m² → mind. 2 Teilungen, 4 Punkte"
+           : A <= 2.0 ? "1,1–2,0 m² → mind. 3 Teilungen, 9 Punkte"
+           : "> 2,0 m² → mind. 12 u. 4 je m² = " + Math.min(20, Math.max(12, Math.ceil(4 * A))) + " Punkte";
+    } else {
+    if (A < 0.1 && !mindestP) { return { n1: 1, n2: 1, text: "A < 0,1 m² → 1 Punkt (Mitte)ᵃ" }; }
+    if (A < 0.1) { nMin = mindestP; teilMin = 2; text = "A < 0,1 m² → 1 Punkt (Mitte)ᵃ"; }
+    else
+    if (A <= 1.0) { nMin = 4; teilMin = 2; text = "0,1–1,0 m² → mind. 2 Teilungen, 4 Punkte"; }
+    else if (A <= 2.0) { nMin = 9; teilMin = 3; text = "1,1–2,0 m² → mind. 3 Teilungen, 9 Punkte"; }
+    else {
+      nMin = Math.max(12, Math.ceil(4 * A)); teilMin = 3;
+      text = "> 2,0 m² → mind. 12 u. 4 je m² = " + nMin + " Punkte";
+      if (nMin > 20) { text += " · 20 ausreichend"; nMin = 20; }
+    }
+    if (mindestP && mindestP > nMin) nMin = mindestP;
+    }
+    // n1 (lange Seite) × n2 suchen: n1·n2 ≥ nMin, Teilflächen-Verhältnis < 2 (C.3)
+    var La = Math.max(L1, L2), Lb = Math.min(L1, L2), best = null;
+    for (var n2 = teilMin; n2 <= 12; n2++) {
+      for (var n1 = n2; n1 <= 24; n1++) {
+        if (n1 * n2 < nMin) continue;
+        var r = (La / n1) / (Lb / n2);
+        if (r >= 2 || r <= 0.5) continue;
+        // Quadratnähe logarithmisch messen (1,5 und 0,667 sind gleich gut);
+        // bei Gleichstand die Variante mit weniger Bohrungen nehmen
+        var g = Math.abs(Math.log(r));
+        if (!best || n1 * n2 < best.n1 * best.n2 ||
+            (n1 * n2 === best.n1 * best.n2 &&
+             (g < best.g - 1e-9 || (Math.abs(g - best.g) < 1e-9 && n1 < best.n1))))
+          best = { n1: n1, n2: n2, r: r, g: g };
+      }
+    }
+    if (!best) best = { n1: Math.ceil(Math.sqrt(nMin)), n2: Math.ceil(Math.sqrt(nMin)), r: 1 };
+    if (best.n1 !== best.n2) text += " · lange Seite feiner geteilt";
+    return { n1: best.n1, n2: best.n2, text: text, La: La, Lb: Lb };
+  }
+
+  // Faustregel EN 15259 (Anm. 8 zu 6.2.1): 5 d_h Einlauf, 2 d_h Auslauf, 5 d_h ab Kaminmündung
+  function streckenStatus(dh) {
+    var reqE = 5 * dh, reqA = 2 * dh;
+    // Anforderung als Platzhalter zeigen – bewusst kein Feldwert, sonst gölte sie als erfüllt
+    $("einlaufIst").placeholder = "≥ " + fmt(reqE, 1);
+    $("auslaufIst").placeholder = "≥ " + fmt(reqA, 1);
+    var ein = zahl("einlaufIst"), aus = zahl("auslaufIst");
+    function teil(name, req, ist) {
+      var s = name + " ≥ <b>" + fmt(req, 1) + " m</b>";
+      if (ist === null) return { s: s, r: null };
+      return { s: s + (ist >= req ? " <span class='ok'>✓</span>" : " <span class='nok'>✗ (" + fmt(ist, 1) + " m)</span>"),
+               r: ist / req };
+    }
+    var e = teil("Einlauf", reqE, ein), a = teil("Auslauf", reqA, aus);
+    var zeile = "<br><span style='font-size:.78rem'>" + e.s + " · " + a.s +
+      " · ab Mündung ≥ <b>" + fmt(reqE, 1) + " m</b></span>";
+    var kurz = [e.r, a.r].filter(function (r) { return r !== null && r < 1; });
+    return { zeile: zeile, kurz: kurz.length > 0 };
+  }
+
+  // Empfehlung bei zu kurzer Ein-/Auslaufstrecke – die Entscheidung trifft der Anwender.
+  // (EN 15259, Anm. 1 zu Tab. 2/3 nennt keine konkrete Zahl)
+  function empfehlung(basis) { return basis === 1 ? 4 : Math.min(20, basis + 4); }
+
+  // Wunsch des Anwenders auswerten; leer = Norm. Rund: immer gerade Anzahl.
+  function gewaehlt(normP, rund) {
+    var w = zahl("punkteWahl");
+    if (w === null || w < 1) return { n: normP, manuell: false };
+    var n = Math.min(Math.round(w), 40);
+    if (rund && n > 1) n = Math.max(2, Math.ceil(n / 2) * 2);
+    return { n: n, manuell: true };
+  }
+
+  // rote Hinweiszeile unter dem Ergebnis
+  function warnZeile(t) {
+    return "<br><span class='nok' style='font-size:.78rem;font-weight:600'>" + t + "</span>";
+  }
+
+  function mittelpunkte(L, n) {
+    var xs = [];
+    for (var k = 1; k <= n; k++) xs.push(L * (2 * k - 1) / (2 * n));
+    return xs;
+  }
+
+  function platzhalterZurueck() {
+    $("punkteWahl").placeholder = "manuelle Eingabe";
+    $("einlaufIst").placeholder = "optional";
+    $("auslaufIst").placeholder = "optional";
+  }
+
+  function rechneQuerschnitt() {
+    punkte = []; flaeche = null;
+    var erg = $("qsErg"), tab = $("ptTabelle"), skiz = $("skizze");
+    tab.innerHTML = ""; skiz.innerHTML = "";
+
+    if (form === "rund") {
+      var d = zahl("dm");
+      if (!d || d <= 0) { erg.innerHTML = "Innendurchmesser eingeben.";
+        platzhalterZurueck(); baueDp(); return; }
+      var st = (zahl("stutzen") || 0) / 1000;
+      var A = Math.PI * d * d / 4; flaeche = A;
+      var m = mindestRund(A);
+      var stk = streckenStatus(d);
+      $("punkteWahl").placeholder = String(m.gesamt);   // Norm-Anzahl als Vorgabe sichtbar machen
+      var w = gewaehlt(m.gesamt, true);
+      var gesamt = w.n;
+      var extra = "";
+      if (stk.kurz) extra += warnZeile("Ein-/Auslaufstrecke unter der Empfehlung der EN 15259 – " +
+        "Erhöhung der Messpunkte erwägen, z. B. " + empfehlung(m.gesamt) + " statt " + m.gesamt + ".");
+      if (w.manuell && gesamt < m.gesamt) extra += warnZeile("Unter dem Norm-Minimum von " + m.gesamt + " Punkten.");
+      erg.innerHTML = "Fläche <b>" + fmt(A, 3) + " m²</b> → <b class='gross'>" + gesamt +
+        " Messpunkte</b>" + (gesamt > 1 ? " auf <b>2 Achsen</b> (90° versetzt), je " + (gesamt / 2) + " Punkte" : "") +
+        (w.manuell ? " <span style='font-size:.78rem'>(selbst gewählt)</span>" : "") +
+        "<br><span style='font-size:.78rem'>Norm-Minimum " + m.gesamt + " · " + m.text + "</span>" + stk.zeile + extra;
+      // Mindest-Wandabstand: größerer Wert aus 3 % der Messlinie und 5 cm (EN 15259, 8.2)
+      var minAbstand = Math.max(0.03 * d, 0.05);
+      if (gesamt === 1) {
+        punkte.push({ achse: "A", i: 1, x: d / 2, fix: false });
+      } else {
+        var xs = tangens(gesamt / 2, d);
+        ["A", "B"].forEach(function (achse) {
+          xs.forEach(function (x, idx) {
+            var xc = Math.min(Math.max(x, minAbstand), d - minAbstand);
+            punkte.push({ achse: achse, i: idx + 1, x: xc, fix: xc !== x });
+          });
+        });
+      }
+      var zeilen = punkte.filter(function (p) { return p.achse === "A"; }).map(function (p) {
+        return "<tr><td>Punkt " + p.i + (p.fix ? " *" : "") + "</td><td>" +
+          fmt(p.x * 100, 0) + " cm</td><td>" + fmt((p.x + st) * 100, 0) + " cm</td></tr>";
+      }).join("");
+      var fussNote = punkte.some(function (p) { return p.fix; })
+        ? "<div class='hinweis'>* auf Mindest-Wandabstand " + fmt(minAbstand * 100, 0) + " cm gesetzt</div>" : "";
+      tab.innerHTML = "<table class='pt'><tr><th>je Achse</th><th>ab Innenwand</th><th>ab Flansch (+" +
+        fmt(st * 100, 0) + " cm)</th></tr>" + zeilen + "</table>" + fussNote;
+      skiz.innerHTML = skizzeRund(d, gesamt);
+    } else {
+      var L1 = zahl("l1"), L2 = zahl("l2");
+      if (!L1 || !L2 || L1 <= 0 || L2 <= 0) { erg.innerHTML = "Beide Seitenlängen eingeben.";
+        platzhalterZurueck(); baueDp(); return; }
+      var stR = (zahl("stutzenR") || 0) / 1000;
+      var A2 = L1 * L2; flaeche = A2;
+      var stkR = streckenStatus(2 * L1 * L2 / (L1 + L2));
+      var mr = mindestRechteck(A2, L1, L2);
+      var basis = mr.n1 * mr.n2;
+      $("punkteWahl").placeholder = String(basis);
+      var wR = gewaehlt(basis, false);
+      var extraR = "";
+      if (wR.manuell) mr = mindestRechteck(A2, L1, L2, wR.n, true);
+      var gesamt = mr.n1 * mr.n2;
+      if (stkR.kurz) {
+        var empf = mindestRechteck(A2, L1, L2, Math.min(basis + 1, 20));
+        extraR += warnZeile("Ein-/Auslaufstrecke unter der Empfehlung der EN 15259 – " +
+          "Erhöhung der Messpunkte erwägen, z. B. " + (empf.n1 * empf.n2) + " statt " + basis + ".");
+      }
+      if (wR.manuell && gesamt < basis) extraR += warnZeile("Unter dem Norm-Minimum von " + basis + " Punkten.");
+      erg.innerHTML = "Fläche <b>" + fmt(A2, 3) + " m²</b> → <b class='gross'>" + gesamt +
+        " Messpunkte</b> (Raster " + mr.n1 + " × " + mr.n2 + ")" +
+        (wR.manuell ? " <span style='font-size:.78rem'>(selbst gewählt)</span>" : "") +
+        "<br><span style='font-size:.78rem'>Norm-Minimum " + basis + " · " + mr.text +
+        "</span>" + stkR.zeile + extraR;
+      if (gesamt === 1) {
+        punkte.push({ achse: "M", i: 1, x: Math.min(L1, L2) / 2 });
+        baueDp(); rechneZeit(); return;
+      }
+      // Mindest-Wandabstand auch im Rechteck: größerer Wert aus 3 % der Seite und 5 cm
+      var minL = Math.max(0.03 * mr.La, 0.05), minK = Math.max(0.03 * mr.Lb, 0.05);
+      var fixR = false;
+      function klemm(x, L, mind) {
+        var xc = Math.min(Math.max(x, mind), L - mind);
+        if (xc !== x) fixR = true;
+        return xc;
+      }
+      var xLang = mittelpunkte(mr.La, mr.n1).map(function (x) { return klemm(x, mr.La, minL); });   // Positionen entlang langer Seite
+      var xKurz = mittelpunkte(mr.Lb, mr.n2).map(function (x) { return klemm(x, mr.Lb, minK); });   // Eintauchtiefen (Achsen sitzen an der langen Seite)
+      // Achsen = Bohrungen entlang der langen Seite, eingetaucht wird über die kurze Seite
+      for (var a = 0; a < mr.n1; a++)
+        for (var pI = 0; pI < mr.n2; pI++)
+          punkte.push({ achse: "S" + (a + 1), i: pI + 1, x: xKurz[pI] });
+      var kopf = "<tr><th>Achse (Position an langer Seite)</th><th>Eintauchtiefen ab Innenwand</th></tr>";
+      var zeilenR = xLang.map(function (xl, a) {
+        return "<tr><td>S" + (a + 1) + " bei " + fmt(xl * 100, 0) + " cm</td><td>" +
+          xKurz.map(function (x) { return fmt((x + stR) * 100, 0); }).join(" · ") + " cm" +
+          (stR ? " (inkl. Stutzen)" : "") + "</td></tr>";
+      }).join("");
+      tab.innerHTML = "<table class='pt'>" + kopf + zeilenR + "</table>" +
+        (fixR ? "<div class='hinweis'>Punkte auf Mindest-Wandabstand gesetzt</div>" : "");
+      skiz.innerHTML = skizzeRechteck(mr.La, mr.Lb, xLang, xKurz);
+    }
+    baueDp();
+    rechneZeit();
+  }
+
+  function skizzeRund(d, gesamt) {
+    var R = 100, c = 115;
+    var s = '<svg class="skizze" viewBox="0 0 230 230"><circle cx="' + c + '" cy="' + c + '" r="' + R +
+      '" fill="none" stroke="var(--mut)" stroke-width="2"/>';
+    if (gesamt === 1) return s + '<circle cx="' + c + '" cy="' + c + '" r="5" fill="var(--akz)"/></svg>';
+    s += '<line x1="15" y1="' + c + '" x2="215" y2="' + c + '" stroke="var(--line)"/>' +
+         '<line x1="' + c + '" y1="15" x2="' + c + '" y2="215" stroke="var(--line)"/>';
+    tangens(gesamt / 2, 2 * R).forEach(function (x) {
+      s += '<circle cx="' + (15 + x) + '" cy="' + c + '" r="4.5" fill="var(--akz)"/>' +
+           '<circle cx="' + c + '" cy="' + (15 + x) + '" r="4.5" fill="var(--akz)"/>';
+    });
+    return s + '<text x="222" y="' + (c + 4) + '" fill="var(--mut)" font-size="11">A</text>' +
+      '<text x="' + (c - 3) + '" y="12" fill="var(--mut)" font-size="11">B</text></svg>';
+  }
+
+  function skizzeRechteck(La, Lb, xLang, xKurz) {
+    var W = 200, H = Math.max(60, Math.min(200, W * Lb / La)), ox = 15, oy = 10;
+    var s = '<svg class="skizze" viewBox="0 0 230 ' + (H + 20) + '"><rect x="' + ox + '" y="' + oy +
+      '" width="' + W + '" height="' + H + '" fill="none" stroke="var(--mut)" stroke-width="2"/>';
+    xLang.forEach(function (xl) {
+      xKurz.forEach(function (xk) {
+        s += '<circle cx="' + (ox + xl / La * W) + '" cy="' + (oy + xk / Lb * H) + '" r="4" fill="var(--akz)"/>';
+      });
+    });
+    return s + "</svg>";
+  }
+
+  // ---------- 1b: Probenahmezeit ----------
+  // Dauer: Eingabe des Anwenders, sonst der Vorschlag aus der Punktzahl
+  function dauerMin() {
+    var v = zahl("dauerGesamt");
+    if (v !== null && v > 0) return v;
+    if (!punkte.length) return null;
+    return Math.max(30, punkte.length * 3);   // 30 min als übliche Untergrenze
+  }
+
+  function rechneZeit() {
+    var erg = $("zeitErg");
+    var n = punkte.length;
+    if (!n) { erg.innerHTML = "Erst Querschnitt (1) ausfüllen."; return; }
+    var minGesamt = n * 3;                              // EN 15259, 8.3: mind. 3 min je Punkt
+    $("dauerGesamt").placeholder = fmt(Math.max(30, minGesamt), 0);
+    var geplant = dauerMin();
+    var txt = "";
+    // Der Mindestwert interessiert erst, wenn er über den üblichen 30 min liegt
+    if (minGesamt > 30) txt += n + " Punkte × mind. 3,0 min → Mindest-Gesamtdauer <b>" +
+      fmt(minGesamt, 0) + " min</b>.<br>";
+    var jePunkt = geplant / n;
+    var ok = jePunkt >= 3 - 1e-9;
+    txt += (zahl("dauerGesamt") === null ? "Vorschlag " : "Geplant ") + fmt(geplant, 0) +
+      " min → <b class='gross'>" + fmt(jePunkt, 1) + " min je Punkt</b> " + (ok
+        ? "<span class='ok'>✓ zulässig</span>"
+        : "<span class='nok'>✗ unter 3,0 min – Gesamtdauer auf mind. " + fmt(minGesamt, 0) + " min verlängern</span>");
+    // Achsenwechsel: die Gesamtdauer teilt sich gleichmäßig auf die Achsen auf
+    var achsen = {};
+    punkte.forEach(function (p) { achsen[p.achse] = 1; });
+    var nA = Object.keys(achsen).length;
+    if (nA > 1) {
+      var iv = geplant / nA, marken = [];
+      for (var k = 1; k < nA; k++) marken.push(fmt(iv * k, 1));
+      txt += "<br>" + nA + " Achsen · Achsenwechsel " + (nA === 2
+        ? "in <b>" + fmt(iv, 1) + " min</b>"
+        : "alle <b>" + fmt(iv, 1) + " min</b> – nach <b>" + marken.join("</b> · <b>") + "</b> min");
+    }
+    erg.innerHTML = txt;
+  }
+
+  // ---------- 2: Dichte ----------
+  function rechneGas() {
+    var t = zahl("tGas");
+    var erg = $("gasErg");
+    dichteB = null;
+    if (t === null) { erg.innerHTML = "Temperatur eingeben (H₂O/O₂/CO₂ optional)."; rechneV(); return; }
+    var pB = zahl("pBaro") || 1013.25;
+    var pS = (zahl("pStat") || 0) / 100;  // Pa → hPa
+    var xw = (zahl("h2o") || 0) / 100;
+    var o2 = zahl("o2"), co2 = zahl("co2");
+    if (o2 === null && co2 === null) { o2 = 20.94; co2 = 0.04; } // Luft, falls nichts angegeben
+    o2 = (o2 || 0) / 100; co2 = (co2 || 0) / 100;
+    var n2 = 1 - o2 - co2; if (n2 < 0) n2 = 0;
+    var rhoNtr = (o2 * 32.0 + co2 * 44.01 + n2 * 28.013) / 22.414;
+    var rhoNf = rhoNtr * (1 - xw) + xw * 18.015 / 22.414;
+    var pAbs = pB + pS;
+    var T = 273.15 + t;
+    dichteB = rhoNf * (273.15 / T) * (pAbs / 1013.25);
+    erg.innerHTML = "Normdichte feucht <b>" + fmt(rhoNf, 3) + " kg/Nm³</b> · Betriebsdichte <b>" +
+      fmt(dichteB, 3) + " kg/m³</b> (bei " + fmt(t, 0) + " °C, " + fmt(pAbs, 0) + " hPa abs., " +
+      fmt(xw * 100, 1) + " % H₂O)";
+    rechneV();
+  }
+
+  // ---------- 3: Netzmessung ----------
+  function baueDp() {
+    var ziel = $("dpBereich");
+    ziel.innerHTML = "";
+    if (!punkte.length) { rechneV(); return; }
+    // Tabelle: je Achse eine Spalte, je Messpunkt eine Zeile
+    var achsen = [], nachAchse = {};
+    punkte.forEach(function (p) {
+      if (!nachAchse[p.achse]) { nachAchse[p.achse] = []; achsen.push(p.achse); }
+      nachAchse[p.achse].push(p);
+    });
+    var zeilen = 0;
+    achsen.forEach(function (a) { zeilen = Math.max(zeilen, nachAchse[a].length); });
+    var stutzen = (zahl(form === "rund" ? "stutzen" : "stutzenR") || 0) / 1000;
+
+    var tab = document.createElement("div");
+    tab.className = "dp-tab";
+    var g = document.createElement("div");
+    g.className = "dp-gitter";
+    g.style.gridTemplateColumns = "repeat(" + achsen.length + ", minmax(96px, 1fr))";
+
+    achsen.forEach(function (a) {
+      var k = document.createElement("div");
+      k.className = "dp-kopf";
+      k.textContent = achsen.length > 1 ? "Achse " + a : "Messpunkte";
+      g.appendChild(k);
+    });
+
+    for (var r = 0; r < zeilen; r++) {
+      achsen.forEach(function (a) {
+        var w = document.createElement("div");
+        w.className = "dp-feld";
+        var p = nachAchse[a][r];
+        if (!p) { g.appendChild(w); return; }
+        var key = p.achse + "-" + p.i;
+        w.innerHTML = '<label>MP ' + p.i + '<span class="dp-tiefe">' +
+          fmt((p.x + stutzen) * 100, 0) + ' cm</span></label>';
+        var inp = document.createElement("input");
+        inp.setAttribute("inputmode", "decimal");
+        inp.placeholder = "Pa";
+        inp.value = dpWerte[key] || "";
+        var anzeige = document.createElement("div");
+        anzeige.className = "dp-v";
+        inp.addEventListener("input", function () {
+          dpWerte[key] = inp.value; sichere(); rechneV();
+        });
+        w.appendChild(inp); w.appendChild(anzeige);
+        w.dataset.key = key;
+        g.appendChild(w);
+      });
+    }
+    tab.appendChild(g);
+    ziel.appendChild(tab);
+    rechneV();
+  }
+
+  function rechneV() {
+    var erg = $("vErg");
+    vMittel = null; messNormTr = null;
+    if (!punkte.length || !flaeche) { erg.innerHTML = "Erst Querschnitt (1) ausfüllen."; rechneIso(); return; }
+    if (!dichteB) { erg.innerHTML = "Erst Abgaszustand (2) ausfüllen."; rechneIso(); return; }
+    var S = zahl("pitot") || 1;
+    // Rückwärtsrechnung: bekannter V̇ → erwartete Geschwindigkeit → Δp-Vorschlag
+    var vb = zahl("vBekannt");
+    if (vb && vb > 0) {
+      var t0 = zahl("tGas"), pAbs0 = (zahl("pBaro") || 1013.25) + ((zahl("pStat") || 0) / 100);
+      var xw0 = (zahl("h2o") || 0) / 100;
+      var fN0 = (273.15 / (273.15 + t0)) * (pAbs0 / 1013.25);
+      var einheit = $("vEinheit").value;
+      var vbB = einheit === "btr" ? vb : einheit === "nf" ? vb / fN0 : vb / (fN0 * (1 - xw0));
+      var vGas = vbB / 3600 / flaeche;
+      var dpS = Math.round(dichteB * Math.pow(vGas / S, 2) / 2);
+      if (dpS > 0) {
+        document.querySelectorAll(".dp-feld input").forEach(function (inp) {
+          inp.placeholder = "≈ " + dpS + " Pa";
+        });
+      }
+    }
+    var vs = [], offen = 0, unter5 = 0;
+    punkte.forEach(function (pp) { pp.v = null; pp.dp = null; });
+    document.querySelectorAll(".dp-feld").forEach(function (w) {
+      var inp = w.querySelector("input"), anz = w.querySelector(".dp-v");
+      var v = (inp.value || "").replace(",", ".").trim();
+      if (v === "") { anz.textContent = ""; offen++; return; }
+      var dp = parseFloat(v);
+      if (!isFinite(dp) || dp < 0) { anz.textContent = "?"; offen++; return; }
+      var vi = S * Math.sqrt(2 * dp / dichteB);
+      vs.push(vi);
+      var pk = punkte.filter(function (pp) { return pp.achse + "-" + pp.i === w.dataset.key; })[0];
+      if (pk) { pk.v = vi; pk.dp = dp; }
+      if (dp <= 5) { unter5++; anz.textContent = fmt(dp, 0) + " Pa → " + fmt(vi, 1) + " m/s ⚠"; }
+      else anz.textContent = fmt(dp, 0) + " Pa → " + fmt(vi, 1) + " m/s";
+    });
+    if (!vs.length) { erg.innerHTML = "Δp-Werte eintragen."; rechneIso(); return; }
+    vMittel = vs.reduce(function (a, b) { return a + b; }, 0) / vs.length;
+    var vB = vMittel * flaeche * 3600;
+    var t = zahl("tGas"), pAbs = (zahl("pBaro") || 1013.25) + ((zahl("pStat") || 0) / 100);
+    var xw = (zahl("h2o") || 0) / 100;
+    var fN = (273.15 / (273.15 + t)) * (pAbs / 1013.25);
+    messNormTr = vB * fN * (1 - xw);
+    var checks = "";
+    if (vs.length >= 2) {
+      var vMin = Math.min.apply(null, vs), vMax = Math.max.apply(null, vs);
+      var verh = vMin > 0 ? vMax / vMin : Infinity;
+      checks = "<br>v<sub>max</sub>/v<sub>min</sub> = " + (isFinite(verh) ? fmt(verh, 1) : "∞") + ":1 " +
+        (verh < 3 ? "<span class='ok'>✓</span>" : "<span class='nok'>✗ ≥ 3:1</span>") +
+        " · Δp &gt; 5 Pa " + (unter5
+          ? "<span class='nok'>✗ " + unter5 + " Punkt" + (unter5 > 1 ? "e" : "") + "</span>"
+          : "<span class='ok'>✓</span>");
+    }
+    erg.innerHTML = "v̄ = <b class='gross'>" + fmt(vMittel, 2) + " m/s</b> (aus " + vs.length + " Punkten" +
+      (offen ? ", " + offen + " offen" : "") + ")" +
+      "<br>V̇ Betrieb <b>" + fmt(vB, 0) + " m³/h</b> · Norm feucht <b>" + fmt(vB * fN, 0) +
+      " Nm³/h</b> · Norm trocken <b>" + fmt(vB * fN * (1 - xw), 0) + " Nm³/h</b>" + checks;
+    rechneIso();
+  }
+
+  // ---------- 4: Isokinetik ----------
+  var DUESEN = [6, 8, 10, 12, 14];
+  // Umrechnung Betriebs-Volumenstrom (feucht, Kanal) → wahres Volumen am Gaszähler (trocken)
+  function fGuWahr() {
+    var t = zahl("tGas"), pAbs = (zahl("pBaro") || 1013.25) + ((zahl("pStat") || 0) / 100);
+    var xw = (zahl("h2o") || 0) / 100;
+    var fN = (273.15 / (273.15 + t)) * (pAbs / 1013.25);
+    var tGu = zahl("tGu"); if (tGu === null) tGu = 20;
+    var pGu = zahl("pGu") || zahl("pBaro") || 1013.25;
+    return fN * (1 - xw) * ((273.15 + tGu) / 273.15) * (1013.25 / pGu);
+  }
+  function fNormTr() {
+    var t = zahl("tGas"), pAbs = (zahl("pBaro") || 1013.25) + ((zahl("pStat") || 0) / 100);
+    var xw = (zahl("h2o") || 0) / 100;
+    return (273.15 / (273.15 + t)) * (pAbs / 1013.25) * (1 - xw);
+  }
+  function duesenFlaeche(dnMM) { return Math.PI * Math.pow(dnMM / 1000, 2) / 4; }
+
+  // Absaugplan je Messpunkt aufbauen
+  // Sekunden, bis das Stoppuhr-Volumen bei dieser Gasuhr-Rate durchgelaufen ist
+  function sekFuer(q) {
+    var v = zahl("stoppVol") || 10;
+    return q > 0 ? v * 3600 / (q * 1000) : null;
+  }
+
+  // festeRate (m³/h an der Gasuhr) überschreibt die punktweise Zielrate,
+  // wenn eine einzige Rate über den ganzen Querschnitt zulässig ist
+  function bauePlan(dn, festeRate) {
+    plan = [];
+    if (!dn || dn <= 0) return;
+    var A = duesenFlaeche(dn);
+    var fGuW = fGuWahr(), fKal = zahl("guFaktor") || 1;
+    var des = (zahl("desaga") || 0) * 60 / 1000;          // l/min → m³/h am Zähler
+    var zielF = 1 + (zahl("zielIso") || 0) / 100;
+    var stoppVol = zahl("stoppVol") || 10;
+    var start = zahl("zaehlerStart");
+    var dauer = dauerMin() || 0;
+    var proPunkt = punkte.length ? dauer / punkte.length : 0;
+    var lauf = start !== null ? start : 0;
+    punkte.forEach(function (pp, idx) {
+      var v = pp.v;
+      var qB = v !== null && v !== undefined ? v * A * 3600 : null;       // m³/h Betrieb, isokinetisch
+      var e = { key: pp.achse + "-" + pp.i, achse: pp.achse, i: pp.i, x: pp.x, v: v, dp: pp.dp, nr: idx + 1 };
+      if (qB !== null) {
+        e.qB = qB;
+        e.qNtr = qB * fNormTr();                                          // Nm³/h trocken durch Filter
+        e.qGuSoll = (qB * fGuW - des) / fKal;                             // Anzeige der Gasuhr, exakt isokinetisch
+        e.qGuZiel = festeRate ? festeRate : (qB * zielF * fGuW - des) / fKal;   // mit Ziel-Isokinetik
+        e.sek = e.qGuZiel > 0 ? stoppVol * 3600 / (e.qGuZiel * 1000) : null;
+        // Zählerstände nur, wenn der Startwert bekannt ist – sonst keine Scheingenauigkeit
+        if (start !== null) {
+          e.vorher = lauf;
+          lauf += e.qGuZiel * proPunkt / 60;
+          e.sollEnde = lauf;
+        }
+      }
+      plan.push(e);
+    });
+  }
+
+  function rechneIso() {
+    var erg = $("isoErg"), tab = $("duesenTabelle"), ptab = $("planTabelle");
+    qGuSollAkt = null; plan = []; profil = null;
+    if (vMittel === null) {
+      erg.innerHTML = "Erst Netzmessung (3) ausfüllen.";
+      tab.innerHTML = ""; ptab.innerHTML = "";
+      zeigeMp(); rechneBhkw(); return;
+    }
+    var gMin = zahl("geraetMin") || 0, gMax = zahl("geraetMax") || Infinity;
+    var fGuW = fGuWahr(), fKal = zahl("guFaktor") || 1, fNtr = fNormTr();
+    var des = (zahl("desaga") || 0) * 60 / 1000;
+    var zielF = 1 + (zahl("zielIso") || 0) / 100;
+    var stoppVol = zahl("stoppVol") || 10;
+
+    // Geschwindigkeitsspanne aus den eingetragenen Punkten
+    var vv = punkte.map(function (p) { return p.v; }).filter(function (x) { return x !== null && x !== undefined; });
+    var vMin = vv.length ? Math.min.apply(null, vv) : vMittel;
+    var vMax = vv.length ? Math.max.apply(null, vv) : vMittel;
+
+    // Düsentabelle: muss über den ganzen Querschnitt passen
+    function pruefe(dd) {
+      var A = duesenFlaeche(dd);
+      var qNtrMax = vMax * A * 3600 * fNtr * zielF;                       // Filterlast am schnellsten Punkt
+      var qGuMin = (vMin * A * 3600 * zielF * fGuW - des) / fKal;         // Gasuhr am langsamsten Punkt
+      var qGuMax = (vMax * A * 3600 * zielF * fGuW - des) / fKal;
+      return { A: A, qNtrMax: qNtrMax, qGuMin: qGuMin, qGuMax: qGuMax,
+               ok: qNtrMax <= gMax && qGuMin >= gMin };
+    }
+    var beste = null;
+    DUESEN.forEach(function (dd) {
+      var r = pruefe(dd);
+      if (r.ok && (!beste || Math.abs(r.qNtrMax - gMax * 0.7) < Math.abs(beste.r.qNtrMax - gMax * 0.7)))
+        beste = { dd: dd, r: r };
+    });
+    $("duese").placeholder = beste ? String(beste.dd) : "keine passend";
+    var dn = zahl("duese");
+    if (!dn && beste) dn = beste.dd;
+
+    var zeilen = DUESEN.map(function (dd) {
+      var r = pruefe(dd);
+      return "<tr><td>" + fmt(dd, 0) + " mm" + (dn === dd ? " ◄" : "") + "</td><td>" +
+        fmt(r.qGuMin, 2) + "–" + fmt(r.qGuMax, 2) + "</td><td>" + fmt(r.qNtrMax, 2) +
+        "</td><td class='" + (r.ok ? "ok" : "nok") + "'>" + (r.ok ? "✓" : "–") + "</td></tr>";
+    }).join("");
+    tab.innerHTML = "<table class='pt'><tr><th>Düse</th><th>Gasuhr m³/h</th><th>max Nm³/h tr.</th><th>passt</th></tr>" +
+      zeilen + "</table>";
+
+    if (!dn || dn <= 0) {
+      erg.innerHTML = "Keine Düse passt über den ganzen Querschnitt – Grenzen prüfen.";
+      ptab.innerHTML = ""; zeigeMp(); rechneBhkw(); return;
+    }
+
+    bauePlan(dn);
+    var fertig = planFertig();
+
+    // Reicht eine einzige Absaugrate für alle Punkte? (Toleranz −5/+15 % am Düsenstrom)
+    profil = null;
+    if (fertig.length > 1) {
+      var qs = fertig.map(function (e) { return e.qB; });
+      var qLo = Math.min.apply(null, qs), qHi = Math.max.apply(null, qs);
+      var qMit = qs.reduce(function (s, q) { return s + q; }, 0) / qs.length;
+      // Rate zur mittleren Geschwindigkeit – Bezug, wenn eine feste Rate gefahren wird
+      var gMit = (qMit * zielF * fGuW - des) / fKal;
+      if (0.95 * qHi <= 1.15 * qLo) {
+        // möglichst die Ziel-Isokinetik treffen, aber im Fenster −5/+15 % aller Punkte bleiben
+        var qEin = Math.min(Math.max(qMit * zielF, 0.95 * qHi), 1.15 * qLo);
+        var gEin = (qEin * fGuW - des) / fKal;
+        profil = { ein: true, q: gEin, sek: sekFuer(gEin) };
+        bauePlan(dn, gEin);              // Plan mit einer festen Rate neu aufbauen
+        fertig = planFertig();
+      } else {
+        profil = { ein: false, q: gMit, sek: sekFuer(gMit) };
+      }
+    } else if (fertig.length === 1) {
+      profil = { ein: true, q: fertig[0].qGuZiel, sek: fertig[0].sek };
+    }
+    qGuSollAkt = fertig.length ? fertig[0].qGuSoll : null;
+
+    var kopf = "Düse <b class='gross'>" + fmt(dn, 1) + " mm</b>" +
+      (zahl("duese") ? "" : " (automatisch)") + " · v " + fmt(vMin, 2) + "–" + fmt(vMax, 2) + " m/s";
+    if (profil && profil.ein) {
+      kopf += "<br><span class='ok'>✓ Eine Absaugrate genügt:</span> <b>" + fmt(profil.q, 2) +
+        " m³/h</b> an der Gasuhr · <b>" + fmt(profil.sek, 1) + " s</b> für " + fmt(stoppVol, 0) + " l";
+    } else if (profil) {
+      kopf += warnZeile("Profil ungleichmäßig – Absaugrate an jedem Punkt nach Absaugplan nachregeln (Abschnitt 5).") +
+        "<br>Mittlere Geschwindigkeit: <b>" + fmt(profil.q, 2) + " m³/h</b> · " +
+        fmt(stoppVol, 0) + " l in <b>" + fmt(profil.sek, 1) + " s</b> (" +
+        fmt(profil.sek / stoppVol, 2) + " s/l)";
+    }
+    if (des > 0) kopf += "<br><span style='font-size:.78rem'>Desaga " + fmt(des * 1000 / 60, 1) +
+      " l/min ist von den Gasuhr-Sollwerten abgezogen.</span>";
+    erg.innerHTML = kopf;
+
+    // Absaugplan
+    var pz = fertig.map(function (e) {
+      return "<tr><td>" + e.achse + "·MP" + e.i + "</td><td>" + fmt(e.v, 2) + "</td><td>" +
+        fmt(e.qGuZiel, 2) + "</td><td>" + fmt(e.sek, 1) + " s</td><td>" +
+        (e.sollEnde !== undefined ? fmt(e.sollEnde, 3) : "–") + "</td></tr>";
+    }).join("");
+    ptab.innerHTML = fertig.length
+      ? "<h3>Absaugplan</h3><table class='pt'><tr><th>Punkt</th><th>v m/s</th><th>Gasuhr m³/h</th><th>" +
+        fmt(stoppVol, 0) + " l in</th><th>Zähler-Soll</th></tr>" + pz + "</table>"
+      : "";
+
+    zeigeMp();
+    rechneBhkw();
+  }
+
+  function rechneBhkw() {
+    var erg = $("bhkwErg");
+    var vg = zahl("gasVerbrauch"), ch4 = zahl("ch4");
+    if (!vg || vg <= 0 || !ch4 || ch4 <= 0) { erg.innerHTML = "Gasverbrauch und CH₄-Gehalt eingeben."; return; }
+    var x = Math.min(ch4, 100) / 100;
+    var o2v = zahl("o2"); var o2 = (o2v !== null ? o2v : 8) / 100;
+    if (o2 >= 0.2094) { erg.innerHTML = "O₂ (Abschnitt 2) muss unter 20,9 % liegen."; return; }
+    var lmin = 2 * x / 0.2094;                 // Mindestluftbedarf je Nm³ Gas (CH₄ + 2 O₂ → CO₂ + 2 H₂O)
+    var vTrSt = 1 + 0.7906 * lmin;             // stöchiom. Abgas trocken: gesamtes C als CO₂ + N₂ der Luft
+    var luftUeb = o2 * vTrSt / (0.2094 - o2);  // (λ−1)·Lmin aus gemessenem O₂ trocken
+    var lambda = 1 + luftUeb / lmin;
+    var vTr = (vTrSt + luftUeb) * vg;
+    var vF = vTr + 2 * x * vg;
+    var fwl = vg * x * 9.97;
+    var ee = zahl("etaEl"), et = zahl("etaTh");
+    var txt;
+    if (ee || et) {
+      // el./therm. Leistung im Vordergrund, Gesamt-FWL nur als Nebenwert
+      txt = (ee ? "<b class='gross'>" + fmt(fwl * ee / 100, 0) + " kW el.</b>" : "") +
+        (ee && et ? " · " : "") + (et ? "<b class='gross'>" + fmt(fwl * et / 100, 0) + " kW th.</b>" : "") +
+        "<br>FWL " + fmt(fwl, 0) + " kW · λ = <b>" + fmt(lambda, 2) + "</b> (aus O₂ " + fmt(o2 * 100, 1) + " %)";
+    } else {
+      txt = "FWL <b class='gross'>" + fmt(fwl, 0) + " kW</b> · λ = <b>" + fmt(lambda, 2) +
+        "</b> (aus O₂ " + fmt(o2 * 100, 1) + " %)";
+    }
+    txt += "<br>V̇ Abgas <b>" + fmt(vTr, 0) + " Nm³/h tr.</b> · <b>" + fmt(vF, 0) + " Nm³/h f.</b>";
+    if (messNormTr) {
+      txt += "<br>Netzmessung: <b>" + fmt(messNormTr, 0) + " Nm³/h tr.</b> → Abweichung <b>" +
+        (messNormTr / vTr - 1 >= 0 ? "+" : "") + fmt((messNormTr / vTr - 1) * 100, 1) + " %</b>";
+    }
+    erg.innerHTML = txt;
+  }
+
+  // ---------- Stoppuhr für die Absaugrate ----------
+  var uhrT0 = 0, uhrLaeuft = false, uhrTakt = null;
+
+  function uhrMalen() {
+    $("uhrZeit").textContent = fmt((new Date().getTime() - uhrT0) / 1000, 1) + " s";
+  }
+  function uhrBewerten(sek) {
+    var erg = $("uhrErg");
+    $("uhrBand").style.display = "none";
+    if (sek < 1) { erg.innerHTML = "Zu kurz – nochmal stoppen."; return; }
+    if (!profil || !profil.q) { erg.innerHTML = "Erst Netzmessung (3) und Düse ausfüllen."; return; }
+    // Bezug ist die Rate aus dem Band: eine feste Rate bzw. die mittlere Geschwindigkeit
+    var ziel = profil.q, soll = sollMittel();
+    qGuSollAkt = soll;
+    var vol = zahl("stoppVol") || 10;
+    var fKal = zahl("guFaktor") || 1;
+    var des = (zahl("desaga") || 0) * 60 / 1000;
+    var qIst = vol * 3.6 / sek;                       // Liter in Sekunden → m³/h an der Gasuhr
+    // Isokinetik am Düsenstrom bewerten (Desaga zählt mit), Rat gegen die geplante Rate
+    var abw = ((qIst * fKal + des) / (soll * fKal + des) - 1) * 100;
+    var dz = (qIst / ziel - 1) * 100;
+    var okIso = abw >= -5 && abw <= 15;
+    var zt = " · Soll " + fmt(ziel, 2) + " m³/h";
+    var rat, farbe;
+    if (dz < -2)      { rat = "MEHR ABSAUGEN";    farbe = "var(--rot)"; }
+    else if (dz > 2)  { rat = "WENIGER ABSAUGEN"; farbe = "var(--rot)"; }
+    else              { rat = "PASST";            farbe = "var(--gruen)"; }
+    if (!okIso) farbe = "var(--rot)";
+    var band = $("uhrBand");
+    band.style.display = "block";
+    band.style.background = farbe;
+    band.innerHTML = rat + "<span class='band-klein'>Isokinetik " + (abw >= 0 ? "+" : "") + fmt(abw, 1) +
+      " %" + (okIso ? "" : " – außerhalb −5/+15 %") + zt + "</span>";
+    erg.innerHTML = fmt(sek, 1) + " s für " + fmt(vol, 0) + " l → <b>" + fmt(qIst, 2) +
+      " m³/h</b> an der Gasuhr (Soll <b>" + fmt(ziel, 2) + "</b>)";
+  }
+  $("uhrKnopf").onclick = function () {
+    if (uhrLaeuft) {
+      clearInterval(uhrTakt); uhrTakt = null; uhrLaeuft = false;
+      var sek = (new Date().getTime() - uhrT0) / 1000;
+      uhrMalen();
+      $("uhrKnopf").textContent = "Start";
+      $("uhrKnopf").className = "";
+      uhrBewerten(sek);
+    } else {
+      uhrT0 = new Date().getTime(); uhrLaeuft = true;
+      $("uhrKnopf").textContent = "Stopp";
+      $("uhrKnopf").className = "laeuft";
+      $("uhrErg").innerHTML = "Läuft – beim Erreichen des Sollvolumens stoppen.";
+      $("uhrBand").style.display = "none";
+      uhrTakt = setInterval(uhrMalen, 71);
+      uhrMalen();
+    }
+  };
+
+  // ---------- 5: Absaugrate je Messpunkt ----------
+  function planFertig() { return plan.filter(function (e) { return e.qGuZiel !== undefined; }); }
+  // Hinweis statt Zahl, solange der Startstand der Gasuhr fehlt
+  function startFehlt() {
+    return zahl("zaehlerStart") === null
+      ? "<span style='font-size:.72rem;color:var(--mut)'>Zählerstand Start in Abschnitt 4 eintragen</span>"
+      : "–";
+  }
+  // exakt isokinetische Rate im Mittel über alle Punkte (Bezug im Ein-Raten-Modus)
+  function sollMittel() {
+    var f = planFertig();
+    if (!f.length) return null;
+    return f.reduce(function (s, e) { return s + e.qGuSoll; }, 0) / f.length;
+  }
+
+  function zeigeMp() {
+    var fertig = planFertig(), sz = $("mpSollZ"), amp = $("mpAmpel");
+    var pf = $("mpProfil"), vol0 = zahl("stoppVol") || 10;
+    if (!fertig.length || !profil) {
+      pf.style.display = "none";
+    } else if (profil.ein) {
+      pf.style.display = "block";
+      pf.style.background = "var(--gruen)"; pf.style.color = "#04231a";
+      pf.innerHTML = "Profil gleichm\u00e4\u00dfig \u2013 eine Rate f\u00fcr alle Punkte: <b>" + fmt(profil.q, 2) +
+        " m\u00b3/h</b> \u00b7 " + fmt(vol0, 0) + " l in <b>" + fmt(profil.sek, 1) + " s</b>" +
+        "<span class='band-klein'>" + fmt(profil.sek / vol0, 2) + " s/l</span>";
+    } else {
+      pf.style.display = "block";
+      pf.style.background = "var(--rot)"; pf.style.color = "#2a0b0b";
+      pf.innerHTML = "Profil ungleichm\u00e4\u00dfig \u2013 Absaugrate an jedem Messpunkt einstellen (Isokinetikblatt)." +
+        (profil.q ? "<span class='band-klein'>Mittlere Geschwindigkeit: <b>" + fmt(profil.q, 2) +
+          " m\u00b3/h</b> \u00b7 " + fmt(vol0, 0) + " l in <b>" + fmt(profil.sek, 1) + " s</b> (" +
+          fmt(profil.sek / vol0, 2) + " s/l)</span>" : "");
+    }
+    // Endstand der Gasuhr: Startstand + geplantes Absaugvolumen aller Punkte
+    var ende = endeSoll();
+    if (ende !== null) sz.textContent = fmt(ende, 3);
+    else sz.innerHTML = startFehlt();
+    $("mpIst").value = istWerte.gesamt || "";
+    bewerteMp();
+  }
+
+  // Soll-Endstand = Startstand + Summe der Punktvolumina (letzter Wert im Absaugplan)
+  function endeSoll() {
+    var f = planFertig();
+    if (!f.length) return null;
+    var e = f[f.length - 1];
+    return e.sollEnde !== undefined ? e.sollEnde : null;
+  }
+
+  function bewerteMp() {
+    var amp = $("mpAmpel"), ist = zahl("mpIst"), start = zahl("zaehlerStart");
+    var dauer = dauerMin() || 0, soll = sollMittel();
+    if (ist === null || start === null || dauer <= 0 || !soll) { amp.style.display = "none"; return; }
+    var fKal = zahl("guFaktor") || 1;
+    var des = (zahl("desaga") || 0) * 60 / 1000;
+    // abgelesenes Volumen \u2192 wahres Volumen \u2192 D\u00fcsenstrom inkl. Desaga
+    var qDuese = (ist - start) / (dauer / 60) * fKal + des;
+    var abw = (qDuese / (soll * fKal + des) - 1) * 100;
+    var ok = abw >= -5 && abw <= 15;
+    amp.style.display = "block";
+    amp.style.color = ok ? "var(--gruen)" : "var(--rot)";
+    amp.textContent = "Isokinetik " + (abw >= 0 ? "+" : "") + fmt(abw, 1) + " % " +
+      (ok ? "\u2713 innerhalb \u22125/+15 %" : "\u2717 au\u00dferhalb \u22125/+15 %");
+  }
+
+  // ---------- Feuchte aus Messung ----------
+  // Rechenwege wie in der validierten DEKRA-Auswertung; intern g/Nm³ trocken
+  function feuchteGNm3() {
+    var art = $("feuchteArt").value;
+    var p = (zahl("pBaro") || 1013.25) + ((zahl("pStat") || 0) / 100);
+    if (art === "grav") {
+      var m = zahl("fMasse"), V = zahl("fVol"), T = zahl("fTemp"), k = zahl("fKorr") || 1;
+      if (m === null || V === null || V <= 0 || T === null) return null;
+      var Vn = V * k * 0.001 * ((zahl("pBaro") || 1013.25) * 273.15) / (1013.25 * (273.15 + T));
+      return Vn > 0 ? m / Vn : null;
+    }
+    if (art === "psy") {
+      var tt = zahl("fTt"), tf = zahl("fTf");
+      if (tt === null || tf === null) return null;
+      var es = 0.0000096 * Math.pow(tf, 4) - 0.0003249 * Math.pow(tf, 3) +
+               0.0357756 * tf * tf + 0.1524907 * tf + 6.9791156;
+      var ee = es - 0.5 * (tt - tf) * (p / 1013.25);
+      return ee <= 0 || ee >= p ? null : 0.8038 * ee / (p - ee) * 1000;
+    }
+    if (art === "rel") {
+      var rf = zahl("fRel"), tk = zahl("tGas");
+      if (rf === null || tk === null) return null;
+      var esk = 6.1078 * Math.exp((17.08085 * tk) / (234.175 + tk));
+      var e2 = rf / 100 * esk;
+      return e2 >= p ? null : e2 * 804 / (p - e2);
+    }
+    var vtr = zahl("fVolTr");
+    if (vtr !== null) return vtr * 803.8 / 100;   // Vol-% bez. trocken → g je Nm³ trocken
+    return zahl("fAbs");
+  }
+  function volTr(m) { return 100 * m / 803.8; }             // Vol-% bezogen auf trockenes Gas
+  function gNm3ZuVol(m) { return 100 * m / (803.8 + m); }   // Vol-% im feuchten Gas
+  function rechneFeuchte() {
+    var m = feuchteGNm3(), erg = $("feuchteErg");
+    if (m === null || !isFinite(m) || m < 0) { erg.innerHTML = "Werte eintragen."; return null; }
+    var vol = gNm3ZuVol(m);
+    erg.innerHTML = "<b>" + fmt(m, 1) + " g/Nm³ tr.</b> · " + fmt(volTr(m), 1) +
+      " Vol-% tr. → <b class='gross'>" + fmt(vol, 1) + " Vol-% f.</b>";
+    return vol;
+  }
+
+  // ---------- Verdrahtung ----------
+  function setForm(f) {
+    form = f;
+    $("rundFelder").style.display = f === "rund" ? "block" : "none";
+    $("rechteckFelder").style.display = f === "rechteck" ? "block" : "none";
+    document.querySelectorAll("#formWahl button").forEach(function (b) {
+      b.className = b.dataset.form === f ? "an" : "";
+    });
+  }
+  document.querySelectorAll("#formWahl button").forEach(function (b) {
+    b.onclick = function () { setForm(b.dataset.form); sichere(); rechneQuerschnitt(); };
+  });
+
+  ["dm", "stutzen", "l1", "l2", "stutzenR", "einlaufIst", "auslaufIst", "punkteWahl"].forEach(function (id) {
+    $(id).addEventListener("input", function () { sichere(); rechneQuerschnitt(); });
+  });
+  ["dauerGesamt"].forEach(function (id) {
+    $(id).addEventListener("input", function () { sichere(); rechneZeit(); rechneIso(); });
+  });
+  ["tGas", "pBaro", "pStat", "h2o", "o2", "co2", "pitot"].forEach(function (id) {
+    $(id).addEventListener("input", function () { sichere(); rechneGas(); });
+  });
+  $("pStatVz").onclick = function () {
+    var v = ($("pStat").value || "").trim();
+    if (v === "") return;
+    $("pStat").value = v.charAt(0) === "-" ? v.slice(1) : "-" + v;
+    sichere(); rechneGas();
+  };
+  $("vBekannt").addEventListener("input", function () { sichere(); rechneV(); });
+  $("vEinheit").addEventListener("change", function () { sichere(); rechneV(); });
+  ["duese", "geraetMin", "geraetMax", "tGu", "pGu", "stoppVol", "zielIso", "guFaktor",
+   "zaehlerStart", "desaga"].forEach(function (id) {
+    $(id).addEventListener("input", function () { sichere(); rechneIso(); });
+  });
+  ["gasVerbrauch", "ch4", "etaEl", "etaTh"].forEach(function (id) {
+    $(id).addEventListener("input", function () { sichere(); rechneBhkw(); });
+  });
+  $("mpIst").addEventListener("input", function () {
+    istWerte.gesamt = $("mpIst").value;
+    sichere(); bewerteMp();
+  });
+
+  $("feuchteAuf").onclick = function () {
+    var b = $("feuchteBox");
+    b.style.display = b.style.display === "none" ? "block" : "none";
+    if (b.style.display === "block") rechneFeuchte();
+  };
+  $("feuchteZu").onclick = function () { $("feuchteBox").style.display = "none"; };
+  $("feuchteArt").addEventListener("change", function () {
+    document.querySelectorAll(".fArt").forEach(function (d) {
+      d.style.display = d.dataset.art === $("feuchteArt").value ? "block" : "none";
+    });
+    rechneFeuchte();
+  });
+  ["fMasse","fVol","fTemp","fKorr","fTt","fTf","fRel","fAbs","fVolTr"].forEach(function (id) {
+    $(id).addEventListener("input", function () { sichere(); rechneFeuchte(); });
+  });
+  $("feuchteNehmen").onclick = function () {
+    var vol = rechneFeuchte();
+    if (vol === null) return;
+    $("h2o").value = fmt(vol, 1);
+    $("feuchteBox").style.display = "none";
+    sichere(); rechneGas();
+  };
+
+  // Rückfrage im Knopf statt confirm() – Dialoge sind in dieser Ansicht blockiert
+  function bestaetige(btn, frage, fn) {
+    var alt = btn.textContent, timer = null;
+    btn.onclick = function () {
+      if (btn.dataset.frage === "1") {
+        clearTimeout(timer);
+        btn.dataset.frage = ""; btn.textContent = alt; btn.classList.remove("frage");
+        fn();
+        return;
+      }
+      btn.dataset.frage = "1"; btn.textContent = frage; btn.classList.add("frage");
+      timer = setTimeout(function () {
+        btn.dataset.frage = ""; btn.textContent = alt; btn.classList.remove("frage");
+      }, 4000);
+    };
+  }
+
+  bestaetige($("reset"), "Wirklich leeren?", function () {
+    dpWerte = {};
+    istWerte = {};
+    alleIds.forEach(function (id) { $(id).value = ""; });
+    $("pitot").value = "1,00"; $("geraetMin").value = "1,0"; $("geraetMax").value = "3,0";
+    $("tGu").value = "20"; $("stoppVol").value = "10"; $("zielIso").value = "+5";
+    $("guFaktor").value = "1,013";
+    $("tGas").value = "185"; $("pBaro").value = "1013,25"; $("pStat").value = "100";
+    $("h2o").value = "12"; $("o2").value = "8"; $("co2").value = "10"; $("vEinheit").value = "ntr";
+    $("etaEl").value = "40"; $("etaTh").value = "45";
+    sichere(); rechneQuerschnitt(); rechneGas();
+  });
+
+  lade();
+  rechneQuerschnitt();
+  rechneGas();
+})();
+</script>
+
+</body>
+</html>
