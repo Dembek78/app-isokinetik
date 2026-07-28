@@ -991,16 +991,14 @@
     var fKal = zahl("guFaktor") || 1;
     var des = (zahl("desaga") || 0) * 60 / 1000;
     var qIst = vol * 3.6 / sek;                       // Liter in Sekunden → m³/h an der Gasuhr
-    // Isokinetik am Düsenstrom bewerten (Desaga zählt mit), Rat gegen die geplante Rate
+    // Isokinetik am Düsenstrom bewerten (Desaga zählt mit) – Maßstab ist −5/+15 %
     var abw = ((qIst * fKal + des) / (soll * fKal + des) - 1) * 100;
-    var dz = (qIst / ziel - 1) * 100;
     var okIso = abw >= -5 && abw <= 15;
     var zt = " · Soll " + fmt(ziel, 2) + " m³/h";
     var rat, farbe;
-    if (dz < -2)      { rat = "MEHR ABSAUGEN";    farbe = "var(--rot)"; }
-    else if (dz > 2)  { rat = "WENIGER ABSAUGEN"; farbe = "var(--rot)"; }
-    else              { rat = "PASST";            farbe = "var(--gruen)"; }
-    if (!okIso) farbe = "var(--rot)";
+    if (abw < -5)      { rat = "MEHR ABSAUGEN";    farbe = "var(--rot)"; }
+    else if (abw > 15) { rat = "WENIGER ABSAUGEN"; farbe = "var(--rot)"; }
+    else               { rat = "PASST";            farbe = "var(--gruen)"; }
     var band = $("uhrBand");
     band.style.display = "block";
     band.style.background = farbe;
