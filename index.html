@@ -304,6 +304,7 @@
   var dichteB = null, vMittel = null, flaeche = null, messNormTr = null;
   var qGuSollAkt = null;   // Soll-Absaugrate des aktuellen Punktes (exakt isokinetisch)
   var plan = [];           // Absaugplan je Messpunkt
+  var vAngenommen = false; // genau ein v eingetragen → übrige Punkte wie dieser angenommen
   var profil = null;       // {ein:true,q,sek} = eine Rate genügt · {ein:false} = punktweise regeln
   var istWerte = {};       // abgelesener Endstand der Gasuhr
 
@@ -813,8 +814,15 @@
     var dauer = dauerMin() || 0;
     var proPunkt = punkte.length ? dauer / punkte.length : 0;
     var lauf = start !== null ? start : 0;
+    // Genau EIN Punkt mit Geschwindigkeit eingetragen → alle übrigen wie dieser annehmen,
+    // damit Absaugplan und Soll-Zählerstand den ganzen Querschnitt abdecken
+    var vv = punkte.map(function (p) { return p.v; })
+                   .filter(function (x) { return x !== null && x !== undefined; });
+    var vErsatz = vv.length === 1 && punkte.length > 1 ? vv[0] : null;
+    vAngenommen = vErsatz !== null;
     punkte.forEach(function (pp, idx) {
       var v = pp.v;
+      if ((v === null || v === undefined) && vErsatz !== null) v = vErsatz;
       var qB = v !== null && v !== undefined ? v * A * 3600 : null;       // m³/h Betrieb, isokinetisch
       var e = { key: pp.achse + "-" + pp.i, achse: pp.achse, i: pp.i, x: pp.x, v: v, dp: pp.dp, nr: idx + 1 };
       if (qB !== null) {
@@ -925,6 +933,8 @@
     }
     if (des > 0) kopf += "<br><span style='font-size:.78rem'>Desaga " + fmt(des * 1000 / 60, 1) +
       " l/min ist von den Gasuhr-Sollwerten abgezogen.</span>";
+    if (vAngenommen) kopf += "<br><span style='font-size:.78rem'>Nur ein Messpunkt eingetragen – " +
+      "übrige Punkte gleich schnell angenommen.</span>";
     erg.innerHTML = kopf;
 
     // Absaugplan
@@ -1053,7 +1063,8 @@
       pf.style.background = "var(--gruen)"; pf.style.color = "#04231a";
       pf.innerHTML = "Profil gleichm\u00e4\u00dfig \u2013 eine Rate f\u00fcr alle Punkte: <b>" + fmt(profil.q, 2) +
         " m\u00b3/h</b> \u00b7 " + fmt(vol0, 0) + " l in <b>" + fmt(profil.sek, 1) + " s</b>" +
-        "<span class='band-klein'>" + fmt(profil.sek / vol0, 2) + " s/l</span>";
+        "<span class='band-klein'>" + fmt(profil.sek / vol0, 2) + " s/l" +
+        (vAngenommen ? " \u00b7 \u00fcbrige Punkte wie der eingetragene angenommen" : "") + "</span>";
     } else {
       pf.style.display = "block";
       pf.style.background = "var(--rot)"; pf.style.color = "#2a0b0b";
