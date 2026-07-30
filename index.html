@@ -7,6 +7,7 @@
 <meta name="description" content="Rechenhilfe zu DIN EN 15259: Messpunkte, Volumenstrom und isokinetische Staubprobenahme.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0e1416">
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Messhelfer">
@@ -1233,6 +1234,13 @@
   rechneQuerschnitt();
   rechneGas();
 })();
+</script>
+
+<script>
+  // Offline-Fähigkeit: Service Worker anmelden (nur wenn der Browser das kann)
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js");
+  }
 </script>
 
 </body>
